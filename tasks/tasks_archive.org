@@ -1,0 +1,643 @@
+#+STARTUP: content hideblocks
+#+TODO: TASK(t!) | DONE(d) CANCEL(c)
+#+TODO: BUG(b!) | FIXED(f) REJECT(r)
+
+* Архив задач
+
+** DONE Перевести шифрование на AES в Linux
+   CLOCK: [2016-06-22 Ср 10:33]--[2016-06-22 Ср 11:01] =>  0:28
+   :PROPERTIES:
+   :issue_id: 30
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:19
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Добавить повторный просмотр писем без их повторной загрузки
+   CLOSED: [2016-07-02 Сб 20:01]
+   CLOCK: [2016-07-02 Сб 19:03]--[2016-07-02 Сб 20:00] =>  0:57
+   :PROPERTIES:
+   :issue_id: 6
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:19
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Тесты для Pop3Handler
+   :PROPERTIES:
+   :issue_id: 10
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:19
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] Соединение
+     - [X] Нет соединения
+     - [X] Порт неправильный
+   - [X] Вход
+     - [X] Имя неправильное
+     - [X] Пароль неправильный
+   - [X] Приём почты
+     - [X] Запрос list
+     - [X] Запрос top
+
+** DONE Тесты для HeadersHandler
+   :PROPERTIES:
+   :issue_id: 11
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Тесты для AccFileHandler
+   :PROPERTIES:
+   :issue_id: 12
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] Загрузка учётных записей
+     - [X] Проверка имени
+       - [X] Имя существует
+       - [X] Является именем файла
+     - [X] Отбрасывание строк
+       - [X] Пустая строка
+       - [X] Строка из пробельных символов
+       - [X] Комментарий
+         - [X] В начале строки
+         - [X] В середине строки после пробелов
+         - [X] Другой признак комментария
+           - [X] Состоит из одного символа
+           - [X] Состоит из нескольких символов
+     - [X] Количество полей
+       - [X] Правильное
+         - [X] Проверка одной строки
+         - [X] Проверка нескольких строк
+       - [X] Неправильное
+         - [X] Проверка одной строки
+         - [X] Проверка нескольких строк
+       - [X] Другое количество полей
+         - [X] Меньше, чем должно быть
+         - [X] Столько, сколько должно быть
+         - [X] Больше, чем должно быть
+     - [X] Разделение полей
+       - [X] Разные разделители
+       - [X] Замена пустых полей на None
+   - [X] Сохранение учётных записей
+     - [X] Комментарий в начале
+       - [X] Имя программы
+       - [X] Версия программы
+     - [X] Разное содержимое полей
+     - [X] Разное количество полей
+     - [X] Разные разделители полей
+     - [X] Предельное количество записей
+       - [X] Ноль записей
+       - [X] Десять тысяч записей
+     - [X] Предельное количество полей
+       - [X] Ноль полей
+       - [X] Десять тысяч полей
+   - [X] Шифрование пароля
+     - [X] Зашифровать
+     - [X] Расшифровать
+   - [X] Проверить количество полей
+     - [X] При записи учётных записей
+     - [X] При шифровании пароля
+     - [X] При расшифровке пароля
+
+** DONE Тесты для PasswordHandler с xor
+   :PROPERTIES:
+   :issue_id: 13
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE [#A] Тесты для PasswordHandler с AES
+   CLOCK: [2016-06-21 Вт 18:13]--[2016-06-21 Вт 20:12] =>  1:59
+   :PROPERTIES:
+   :issue_id: 14
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Тесты для AccountHandler
+   :PROPERTIES:
+   :issue_id: 15
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Тесты для InputHandler
+   CLOSED: [2016-07-22 Пт 17:35]
+   CLOCK: [2016-07-22 Пт 16:34]--[2016-07-22 Пт 17:33] =>  0:59
+   CLOCK: [2016-07-22 Пт 12:03]--[2016-07-22 Пт 13:25] =>  1:22
+   CLOCK: [2016-07-21 Чт 16:06]--[2016-07-21 Чт 17:18] =>  1:12
+   CLOCK: [2016-07-21 Чт 14:24]--[2016-07-21 Чт 14:46] =>  0:22
+   CLOCK: [2016-07-16 Сб 17:08]--[2016-07-16 Сб 17:14] =>  0:06
+   CLOCK: [2016-07-16 Сб 12:12]--[2016-07-16 Сб 12:17] =>  0:05
+   :PROPERTIES:
+   :issue_id: 18
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2016-07-05 Вт]
+   Есть [[issue_id34][задача]] по переделке методов InputHandler, нужно учесть её
+   особенности при составлении тестов.
+
+** DONE Тесты для ConnectionHandler
+   CLOSED: [2016-07-09 Сб 10:40]
+   CLOCK: [2016-07-09 Сб 09:32]--[2016-07-09 Сб 10:38] =>  1:06
+   CLOCK: [2016-07-08 Пт 17:00]--[2016-07-08 Пт 17:41] =>  0:41
+   - State "TASK"       from "DONE"       [2016-07-06 Ср 17:19]
+   CLOCK: [2016-06-26 Вс 20:54]--[2016-06-26 Вс 21:11] =>  0:17
+   CLOCK: [2016-06-26 Вс 19:15]--[2016-06-26 Вс 20:00] =>  0:45
+   CLOCK: [2016-06-25 Сб 18:23]--[2016-06-25 Сб 18:55] =>  0:32
+   :PROPERTIES:
+   :issue_id: 31
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2016-07-06 Ср]
+   Дописать тесты, проверяющие диапазон сообщений. Так как тесты были
+   изначально написаны для метода, у которого не было диапазона
+   сообщений, то есть только те тесты, которые проверяют случаи при
+   скачивании всех сообщений.
+
+** DONE Тесты для ModesHandler
+   CLOSED: [2016-07-11 Пн 19:58]
+   CLOCK: [2016-07-11 Пн 19:04]--[2016-07-11 Пн 19:56] =>  0:52
+   :PROPERTIES:
+   :issue_id: 36
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Дополнить просмотрщики
+   :PROPERTIES:
+   :issue_id: 20
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] добавить общее количество единиц
+     - [X] в просмотрщике учётных записей
+     - [X] в просмотрщике сообщений
+   - [X] сделать выход в середине просмотра
+     - [X] в просмотрщике учётных записей
+     - [X] в просмотрщике сообщений
+
+** DONE Сделать доставку пар адрес-тема
+   :PROPERTIES:
+   :issue_id: 21
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] подключение к серверу ConnectionHandler -> Pop3Handler
+
+** DONE Сделать выбор учётной записи
+   :PROPERTIES:
+   :issue_id: 22
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] сделать исполнителя для хранения учётной записи
+
+** DONE Сделать постраничный вывод учётных записей
+   :PROPERTIES:
+   :issue_id: 23
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] выводить номер страницы и количество оставшихся страниц
+
+** DONE Добавить дано/получить ко всем подпрограммам
+   :PROPERTIES:
+   :issue_id: 24
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Поменять порядок аргументов у подменю на естественный
+   :PROPERTIES:
+   :issue_id: 25
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE Сделать главного исполнителя программы
+   :PROPERTIES:
+   :issue_id: 26
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] параметризовать его первоначально (имя конфигурационного файла)
+   - [X] соединить его с меню
+
+** CANCEL Провести декомпозицию PasswordHandler
+   :PROPERTIES:
+   :issue_id: 27
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: CANCEL
+   :END:
+
+   Сейчас он использует пароль по умолчанию, если пароль не задан.
+
+   Либо выбранный пароль должен подаваться сверху, либо он должен
+   выбирать пароль, а шифровать должен более простой шифровальщик.
+
+   [2016-06-22 Ср 15:09]
+   Решил отменить эту задачу:
+   1. Всё и так работает.
+   2. Если надо менять это, то надо менять и многое другое тоже.
+   3. Зачем что-то менять, что работает, если можно потратить время на
+      то, что не работает или чего вообще нет?
+   4. Никаких проблем не обнаружил.
+      Его можно максимум переназвать из PasswordHandler в
+      AccountPasswordHandler и всё. При этом у него там ещё тесты
+      есть, которые тоже надо будет сидеть и переделывать.
+
+   Так что решение такое: отменить задачу, а при возврате к вопросу
+   создать новую задачу.
+
+** DONE Перестроить архитектуру просмотра и выбора учётных записей
+   :PROPERTIES:
+   :issue_id: 29
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [X] AccFileHandler должен быть один в MenuHandler
+   - [X] PasswordHandler должен использоваться внутри AccFileHandler
+   - [X] ViewerHandler должен иметь доступ к общему AccFileHandler
+         Возможно, нужно применить новый приём передачи
+         исполнителя как переменной.
+
+** DONE [#B] Добавить установку диапазона принимаемых писем
+   CLOSED: [2016-07-11 Пн 15:36]
+   CLOCK: [2016-07-11 Пн 15:01]--[2016-07-11 Пн 15:31] =>  0:30
+   CLOCK: [2016-07-09 Сб 23:03]--[2016-07-09 Сб 23:31] =>  0:28
+   CLOCK: [2016-07-06 Ср 23:11]--[2016-07-07 Чт 00:12] =>  1:01
+   CLOCK: [2016-07-06 Ср 16:45]--[2016-07-06 Ср 17:37] =>  0:52
+   CLOCK: [2016-07-06 Ср 14:20]--[2016-07-06 Ср 14:27] =>  0:07
+   CLOCK: [2016-07-06 Ср 14:05]--[2016-07-06 Ср 14:19] =>  0:14
+   CLOCK: [2016-07-05 Вт 19:09]--[2016-07-05 Вт 20:00] =>  0:51
+   CLOCK: [2016-07-05 Вт 17:04]--[2016-07-05 Вт 17:15] =>  0:11
+   CLOCK: [2016-07-05 Вт 13:34]--[2016-07-05 Вт 14:20] =>  0:46
+   CLOCK: [2016-07-05 Вт 10:54]--[2016-07-05 Вт 11:36] =>  0:42
+   CLOCK: [2016-07-05 Вт 00:10]--[2016-07-05 Вт 00:31] =>  0:21
+   CLOCK: [2016-07-04 Пн 21:38]--[2016-07-04 Пн 22:28] =>  0:50
+   CLOCK: [2016-07-04 Пн 19:43]--[2016-07-04 Пн 20:43] =>  1:00
+   :PROPERTIES:
+   :issue_id: 33
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2016-07-04 Пн]
+
+   Когда аккаунт выбран, нужно зайти куда-то и установить для него
+   номер начального письма и номер конечного письма.
+   Дальше выполняется обычная загрузка заголовков, которая учитывает
+   эти настройки. По умолчанию должны грузиться письма с первого по
+   последнее.
+   Это даст возможность выбирать любую порцию писем в ящике: в начале,
+   в середине или в конце.
+
+   [2016-07-05 Вт]
+
+   Неудобно угадывать сколько писем в ящике, чтобы устанавливать
+   диапазон. Да и диапазон может вылазить за верхнюю границу
+   количества писем. Когда диапазон вылазит, должно порождаться
+   исключение с соответствующим сообщением в статусной строке.
+
+** DONE Переделать методы в InputHandler
+   CLOSED: [2016-07-21 Чт 14:04]
+   CLOCK: [2016-07-16 Сб 18:18]--[2016-07-16 Сб 18:26] =>  0:08
+   CLOCK: [2016-07-16 Сб 17:14]--[2016-07-16 Сб 18:14] =>  1:00
+   :PROPERTIES:
+   :issue_id: 34
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2016-07-05 Вт]
+
+   - [ ] Строки приглашения должны устанавливаться в start().
+   - [ ] Передача строк приглашения должна быть именованной.
+   - [ ] По умолчанию строки приглашения должны быть пустыми.
+   - [ ] В числовом вводе должен задаваться диапазон.
+     В случае выхода из него при вводе должно порождаться исключение
+     диапазона.
+
+   Когда метод input_number() будет принимать диапазон, все места, где
+   есть диапазон, надо переделать с учётом нового устройства метода.
+   То есть, если раньше диапазон обрабатывался отдельно, то после
+   переделки он должен подаваться прямо в метод и исключение должно
+   порождаться в методе и распространяться выше.
+
+** DONE Добавить постоянный индикатор выбранного ящика
+   CLOSED: [2016-12-29 Чт 22:14]
+   :PROPERTIES:
+   :issue_id: 48
+   :issue_type: task
+   :ARCHIVE_TIME: 2016-12-30 Пт 13:51
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+** DONE [#D] Перевести шифрование на AES в Windows
+   CLOSED: [2017-03-26 Вс 13:22]
+   CLOCK: [2016-06-22 Ср 09:48]--[2016-06-22 Ср 09:56] =>  0:08
+   :PROPERTIES:
+   :issue_id: 2
+   :issue_type: task
+   :ARCHIVE_TIME: 2017-03-26 Вс 13:25
+   :ARCHIVE_FILE: ~/prog/projects/python/checkmail/checkmail-lin/tasks/tasks.org
+   :ARCHIVE_OLPATH: Задачи
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   В Windows шифрование через AES потребует установки модуля Crypto.
+   Если модуль не ставится, программа должна работать без него (с отключённой
+   функциональностью). Алгоритм xor слишком слабый, чтобы его оставлять.
+
+   [2017-03-26 Вс]
+
+   Так как проект разделён на Linux и Windows версии, файлы с задачами
+   и багами стали индивидуальными, поэтому это задание закрывается как
+   перешедшее в индивидуальный файл, находящийся в Windows-версии.
+
+* Архив багов
+
+** FIXED [#A] В русской раскладке действия с вводом вызывают исключение
+   CLOSED: [2016-06-30 Чт 18:20]
+   CLOCK: [2016-06-30 Чт 17:31]--[2016-06-30 Чт 17:57] =>  0:26
+   :PROPERTIES:
+   :issue_id: 47
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+   При Ctrl + D с введёнными русскими символами.
+
+** FIXED [#A] В русской раскладке действия с паролем вызывают исключение
+   CLOSED: [2016-06-30 Чт 18:24]
+   CLOCK: [2016-06-30 Чт 17:58]--[2016-06-30 Чт 18:03] =>  0:05
+   :PROPERTIES:
+   :issue_id: 41
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+   - [X] при вводе пароля при загрузке учётной записи
+   - [X] при вводе пароля при сохранении в файл
+   - [X] при русских символах в пароле при сохранении в файл
+
+   [2016-06-29 Ср 01:43]
+
+   Эта проблема возникает везде, где используется
+   InputHandler.input_password().
+   Поэтому нужно порождать соответствующее исключение, которое будет
+   сообщать о неправильной раскладке.
+
+** FIXED Проводится лишь одна попытка получения сообщения
+   CLOSED: [2016-06-26 Вс 21:18]
+   CLOCK: [2016-06-24 Пт 16:49]--[2016-06-24 Пт 18:08] =>  1:19
+   CLOCK: [2016-06-24 Пт 12:20]--[2016-06-24 Пт 14:00] =>  1:40
+   CLOCK: [2016-06-23 Чт 18:57]--[2016-06-23 Чт 20:53] =>  1:56
+   CLOCK: [2016-06-23 Чт 17:01]--[2016-06-23 Чт 17:18] =>  0:17
+   :PROPERTIES:
+   :issue_id: 44
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+   - [X] сделать три попытки
+   - [X] добавить в список признак непринятого письма
+   - [X] добавить в список признак принятого и нераскодированного письма
+   - [X] сделать тесты для этих случаев
+
+   [2016-06-23 Чт 17:18]
+
+   Нужно переделать связку ConnectionHandler и Pop3Handler для того,
+   чтобы сделать более умной обработку каждого сообщения. Сейчас
+   Pop3Handler слишком комплексно обрабатывает заголовки (делает всё
+   сразу), из-за чего невозможно туда вставить и три попытки приёма
+   сообщения, и возврат ошибки в случае неудачи приёма, и возврат
+   ошибки в случае неудачи раскодирования. Возможно, его метод нужно
+   декомпозировать и сделать MessageHandler, который будет возвращать
+   правильный кортеж на каждый из трёх случаев:
+   - не принял
+   - принял и не раскодировал
+   - принял и раскодировал
+   На каждом этапе он должен иметь возможность вставить какие-то
+   действия. Например, если он не принял, он должен ещё раз
+   попробовать, а если не раскодировал, должен попробовать другой
+   алгоритм раскодирования.
+
+** FIXED Подключение выполняется по незашифрованному POP3
+   :PROPERTIES:
+   :issue_id: 45
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+   - [X] исправить на POP3S
+     - [X] в версии для linux
+     - [X] в версии для windows
+
+** FIXED Сообщение с неправильно указанной кодировкой вызывает исключение
+   CLOSED: [2016-06-24 Пт 18:20]
+   :PROPERTIES:
+   :issue_id: 46
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+** FIXED Не обрабатывается исключение при сохранении учётной записи в файл
+   CLOSED: [2016-07-06 Ср 12:52]
+   CLOCK: [2016-07-06 Ср 12:35]--[2016-07-06 Ср 12:51] =>  0:16
+   :PROPERTIES:
+   :issue_id: 8
+   :issue_type: bug
+   :ARCHIVE_TIME: 2016-12-16 Пт 19:20
+   :ARCHIVE_FILE: ~/prog/projects/python/mail/prj/tasks/tasks.org
+   :ARCHIVE_OLPATH: Баги
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: FIXED
+   :END:
+
+   [2016-07-06 Ср]
+
+   При Ctrl + D с пустым вводом выпадает EOFError и программа не
+   обрабатывает его.
+
+* Архив окружения
+
+** DONE [#D] Разделить Linux и Windows версии на подпроекты
+   CLOSED: [2017-03-26 Вс 13:04]
+   :PROPERTIES:
+   :issue_id: 32
+   :issue_type: task
+   :ARCHIVE_TIME: 2017-03-26 Вс 13:07
+   :ARCHIVE_FILE: ~/prog/projects/python/checkmail/checkmail-lin/tasks/tasks.org
+   :ARCHIVE_OLPATH: Окружение
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2016-06-29 Ср 01:38]
+
+   Поначалу версии были очень похожи, но со временем они стали
+   различаться всё больше и больше. Если сначала они различались путём
+   к файлу с аккаунтами, то потом они стали различаться подсказками на
+   экране, а теперь они различаются средствами шифрования паролей.
+
+   Если модуль Crypto удастся установить в Windows, код не будет
+   сильно отличаться в этой части, а если не удастся, то понадобится
+   другая реализация алгоритма шифрования.
+
+   Так отличия в разных частях кода будут всё время увеличиваться и
+   уже простой патч к Linux-версии не подойдёт.
+
+   Поэтому принято решение разделить проект на два и развивать версии
+   по отдельности, не сковывая код одной кодом другой.
+
+   На данный момент разработка Windows-версии приостановлена до тех
+   пор, пока Windows-версия не будет выделена в отдельный подпроект
+   (чтобы не смешивать коммиты).
+
+   После разделения нужно будет сделать diff, создать патч(и) и
+   добавить все накопившиеся изменения в Windows-версию.
+
+   [2017-03-26 Вс]
+
+   При попытке разделения версий выяснилось, что существует проблема в
+   файле с задачами и багами. При разработке Linux-версии задачи и
+   баги могут относиться ещё и к Windows-версии и их надо как-то
+   синхронизировать. К тому же задачи и баги могут относиться и только
+   к одной из версий. Нужно понять, как вести разработку версий
+   параллельно с индивидуальными задачами и багами с возможностью
+   синхронизации общих задач и багов.
+
+   [2017-03-26 Вс]
+
+   Принято решение просто скопировать репозиторий и получить две копии
+   репозитория. После этого Windows-версия будет следить за задачами и
+   багами и просто копировать их к себе. И наоборот, если при
+   разработке Windows-версии будет появляться новая общая задача или
+   общий баг, то они будут копироваться в Linux-версию. А с момента
+   разделения на две копии версии будут существовать раздельно.
+

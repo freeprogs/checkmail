@@ -1,0 +1,504 @@
+#+STARTUP: content logdone hideblocks
+#+TODO: TASK(t!) | DONE(d) CANCEL(c)
+#+TODO: BUG(b!) | FIXED(f) REJECT(r)
+#+PRIORITIES: A F C
+#+TAGS: current(c) testing(t)
+#+CONSTANTS: last_issue_id=54
+
+* Задачи
+  :PROPERTIES:
+  :COLUMNS:  %3issue_id(ID) %4issue_type(TYPE) %TODO %40ITEM %SCHEDULED %DEADLINE %1PRIORITY
+  :ARCHIVE:  tasks_archive.org::* Архив задач
+  :END:
+
+** TASK Перевести файл настройки на Yaml
+   :PROPERTIES:
+   :issue_id: 1
+   :issue_type: task
+   :END:
+
+** TASK Переделать AccFileHandler
+   :PROPERTIES:
+   :issue_id: 4
+   :issue_type: task
+   :END:
+
+   - [ ] Номер поля пароля не должен превышать количество полей
+   - [ ] Номер поля пароля должен быть переменной
+   - [ ] Комментарий и разделитель полей не должны совпадать
+   - [ ] Имя переменной комментария подразумевает один символ
+   - [ ] Параметризовать замену пустого поля
+
+** TASK Переделать в AccFileHandler чтение файла учётных записей
+   :PROPERTIES:
+   :issue_id: 5
+   :issue_type: task
+   :END:
+
+   - [ ] Другой способ определения комментария
+   - [ ] Другой способ определения пустой строки
+   Сейчас это делается через csv.
+   А нужно сделать, чтобы:
+   * сначала читалась строка
+   * потом определялся её тип
+   * а затем уже она передавалась в csv
+
+** TASK Переделать минимальный размер окна на 24x80
+   :PROPERTIES:
+   :issue_id: 7
+   :issue_type: task
+   :END:
+
+** TASK Добавить индикатор установленных режимов
+   :PROPERTIES:
+   :issue_id: 37
+   :issue_type: task
+   :END:
+
+   [2016-07-11 Пн]
+
+   При загрузке сообщений в определённом режиме, нужно видеть, что
+   этот режим установлен. Также нужно показывать, какие значение в нём
+   установлены. Иначе при отвлечении на какое-то время при новой
+   загрузке можно забыть, что там были сделаны настройки.
+
+   Нужно учесть, что режимы могут относится как к загрузке сообщений,
+   так и к выводу сообщений. Поэтому нельзя фокусировать индикатор
+   любого режима в одном месте.
+
+** TASK Добавить общий файл настроек программы
+   :PROPERTIES:
+   :issue_id: 9
+   :issue_type: task
+   :END:
+
+   Если файл с аккаунтами отвечает за наполнение программы,
+   то общий файл отвечает за параметры самой программы.
+
+   - Количество сообщений на странице
+     Иногда сообщений несколько сотен и было бы удобно увеличить
+     окно и показать сразу несколько десятков сообщений.
+
+** DONE Тесты для AccViewerHandler
+   CLOSED: [2016-12-29 Чт 20:54]
+   - State "TASK"       from "DONE"       [2016-07-23 Сб 21:21]
+   :PROPERTIES:
+   :issue_id: 16
+   :issue_type: task
+   :END:
+
+   - [X] проверить header
+     - [X] на одной странице
+     - [X] на нескольких страницах
+   - [X] проверить message
+     - [X] на одной странице
+     - [X] на нескольких страницах
+   - [X] проверить номер записи
+     - [X] сквозная нумерация на страницах
+     - [X] поле разной ширины
+   - [X] проверить содержимое учетной записи
+     - [X] имя записи
+     - [X] пользователь
+     - [X] сервер
+   - [X] проверить страницы
+     - [X] номер страницы
+     - [X] количество страниц
+     - [X] пустое пространство
+
+   [2016-07-23 Сб]
+
+   Открыл задачу снова, так как тесты писались давно, когда ещё было
+   неизвестно, какими они должны быть. Теперь в них невозможно
+   разобраться.
+
+   Непонятно, правильно ли сделан вспомогательный класс. Непонятно, то
+   ли он вытаскивает или нет. Легко допустить какую-нибудь ошибку и не
+   заметить этого.
+
+   Правило тестирования гласит: тесты должны быть настолько простыми,
+   чтобы для них не нужно было писать тесты.
+
+   К тому же невозможно даже понять, какие тесты есть (чтобы
+   определить, что есть, а что ещё надо написать), так как имена
+   методов ни о чём не говорят. Я просто не помню, что они означали, а
+   из них ничего не понятно, так как их можно трактовать несколькими
+   способами сразу.
+
+   Поэтому решил написать тесты заново.
+
+   [2016-08-08 Пн]
+
+   - Какие тесты сделать:
+     - [X] пустой список аккаунтов
+     - [X] пустые аккаунты заполняются пустыми строками
+     - [X] заголовок может быть многострочным
+     - [X] заголовок может содержать юникод
+     - [X] заголовок выводится на каждой странице
+     - [X] сообщение может быть многострочным
+     - [X] сообщение может содержать юникод
+     - [X] сообщение выводится на каждой странице
+     - [X] общее количество аккаунтов выводится
+     - [X] количество страниц вычисляется правильно
+     - [X] аккаунт переносится на следующую страницу
+     - [X] пустое название в аккаунте заменяется
+     - [X] пустой сервер в аккаунте заменяется
+     - [X] пустой пользователь в аккаунте заменяется
+     - [X] номера аккаунтов выравниваются одинаково
+     - [X] отрицательный размер страницы порождает исключение
+     - [X] нулевой размер страницы порождает исключение
+     - [X] отрицательная ширина поля номера порождает исключение
+     - [X] список аккаунтов может быть генератором
+     - [ ] слишком длинный номер аккаунта укорачивается
+     - [ ] слишком длинное имя аккаунта укорачивается
+     - [ ] слишком длинное имя сервера укорачивается
+     - [ ] слишком длинное имя пользователя укорачивается
+
+  [2016-12-29 Чт]
+
+  Тесты про ширины полей номера, аккаунта, сервера и пользователя не
+  стал делать, так как это требует основательного подхода не только в
+  этом исполнителе, но и в других. Поэтому задание закрывается, а эти
+  тесты должны быть созданы заново в новом задании.
+
+** TASK Тесты для MsgViewerHandler
+   :PROPERTIES:
+   :issue_id: 17
+   :issue_type: task
+   :END:
+
+** TASK Тесты для MenuItemHandler
+   :PROPERTIES:
+   :issue_id: 19
+   :issue_type: task
+   :END:
+
+** TASK Тесты для MenuHandler
+   :PROPERTIES:
+   :issue_id: 38
+   :issue_type: task
+   :END:
+
+** TASK Тесты для AesCryptor
+   :PROPERTIES:
+   :issue_id: 39
+   :issue_type: task
+   :END:
+
+** TASK Тесты для MailChecker
+   :PROPERTIES:
+   :issue_id: 40
+   :issue_type: task
+   :END:
+
+** TASK Переделать вывод страниц в AccViewerHandler
+   :PROPERTIES:
+   :issue_id: 28
+   :issue_type: task
+   :END:
+
+   - [ ] строковые константы вынести наверх
+   - [ ] вынести вывод страницы в подпрограмму
+
+** TASK Добавить запрос статистики для учётной записи на сервере
+   :PROPERTIES:
+   :issue_id: 35
+   :issue_type: task
+   :END:
+
+   [2016-07-05 Вт]
+
+   - [ ] Количество писем
+   - [ ] Размер писем
+
+   [2016-07-11 Пн]
+
+   Встал вопрос, каким должен быть этот запрос, каким-то отдельным
+   пунктом меню или устанавливаемым режимом. Пока что принял решение
+   попробовать это в виде режима.
+
+
+* Баги
+  :PROPERTIES:
+  :COLUMNS:  %3issue_id(ID) %4issue_type(TYPE) %TODO %40ITEM %SCHEDULED %DEADLINE %1PRIORITY
+  :ARCHIVE:  tasks_archive.org::* Архив багов
+  :END:
+
+** BUG При проверке ящика порождаются неожиданные исключения
+   :PROPERTIES:
+   :issue_id: 42
+   :issue_type: bug
+   :END:
+
+   - ConnectionResetError: [Errno 104] Connection reset by peer
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+     Стек:
+     #+BEGIN_SRC python
+       File "/usr/local/bin/mail.py", line 1387, in get_addrsubj
+         headers = self._conn.top(i, 30)[1]
+       File "/usr/lib/python3.3/poplib.py", line 304, in top
+         return self._longcmd('TOP %s %s' % (which, howmuch))
+       File "/usr/lib/python3.3/poplib.py", line 162, in _longcmd
+         return self._getlongresp()
+       File "/usr/lib/python3.3/poplib.py", line 138, in _getlongresp
+         resp = self._getresp()
+       File "/usr/lib/python3.3/poplib.py", line 128, in _getresp
+         resp, o = self._getline()
+       File "/usr/lib/python3.3/poplib.py", line 110, in _getline
+         line = self.file.readline()
+       File "/usr/lib/python3.3/socket.py", line 297, in readinto
+         return self._sock.recv_into(b)
+     ConnectionResetError: [Errno 104] Connection reset by peer
+     #+END_SRC
+   - TypeError: decode() argument 1 must be str, not None
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+     Стек:
+     #+BEGIN_SRC python
+     Traceback (most recent call last):
+       File "/usr/local/bin/mail.py", line 1546, in <module>
+         mailchecker()
+       File "/usr/local/bin/mail.py", line 1538, in mailchecker
+         mc.checkmail_menu()
+       File "/usr/local/bin/mail.py", line 106, in checkmail_menu
+         mh.run()
+       File "/usr/local/bin/mail.py", line 392, in run
+         self._checkmail()
+       File "/usr/local/bin/mail.py", line 844, in _checkmail
+         aslst = ch.get_pop3_addrsubj()
+       File "/usr/local/bin/mail.py", line 1330, in get_pop3_addrsubj
+         lst = self._p3h.get_addrsubj()
+       File "/usr/local/bin/mail.py", line 1391, in get_addrsubj
+         headers, ['From', 'Subject']
+       File "/usr/local/bin/mail.py", line 1407, in _filter_headers
+         lst = hh.filter()
+       File "/usr/local/bin/mail.py", line 1440, in filter
+         for header in self._select)
+       File "/usr/local/bin/mail.py", line 1440, in <genexpr>
+         for header in self._select)
+       File "/usr/local/bin/mail.py", line 1453, in _decode_header
+         s = i[0].decode(self._charset)
+     TypeError: decode() argument 1 must be str, not None
+     #+END_SRC
+   - ConnectionResetError: [Errno 104] Connection reset by peer
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+     Стек:
+     #+BEGIN_SRC python
+     Traceback (most recent call last):
+       File "/usr/local/bin/mail.py", line 1546, in <module>
+         mailchecker()
+       File "/usr/local/bin/mail.py", line 1538, in mailchecker
+         mc.checkmail_menu()
+       File "/usr/local/bin/mail.py", line 106, in checkmail_menu
+         mh.run()
+       File "/usr/local/bin/mail.py", line 392, in run
+         self._checkmail()
+       File "/usr/local/bin/mail.py", line 844, in _checkmail
+         aslst = ch.get_pop3_addrsubj()
+       File "/usr/local/bin/mail.py", line 1330, in get_pop3_addrsubj
+         lst = self._p3h.get_addrsubj()
+       File "/usr/local/bin/mail.py", line 1387, in get_addrsubj
+         headers = self._conn.top(i, 30)[1]
+       File "/usr/lib/python3.3/poplib.py", line 304, in top
+         return self._longcmd('TOP %s %s' % (which, howmuch))
+       File "/usr/lib/python3.3/poplib.py", line 162, in _longcmd
+         return self._getlongresp()
+       File "/usr/lib/python3.3/poplib.py", line 147, in _getlongresp
+         line, o = self._getline()
+       File "/usr/lib/python3.3/poplib.py", line 110, in _getline
+         line = self.file.readline()
+       File "/usr/lib/python3.3/socket.py", line 297, in readinto
+         return self._sock.recv_into(b)
+       File "/usr/lib/python3.3/ssl.py", line 488, in recv_into
+         return self.read(nbytes, buffer)
+       File "/usr/lib/python3.3/ssl.py", line 362, in read
+         v = self._sslobj.read(len, buffer)
+     ConnectionResetError: [Errno 104] Connection reset by peer
+     #+END_SRC
+
+** BUG Меняется высота страницы при слишком длинной теме
+   :PROPERTIES:
+   :issue_id: 43
+   :issue_type: bug
+   :END:
+
+   - [ ] укоротить тему с добавлением признака продолжения
+
+** BUG При приёме данных на нижнем уровне не обрабатывается исключение
+   :PROPERTIES:
+   :issue_id: 49
+   :issue_type: bug
+   :END:
+
+   - OSError: cannot read from timed out object
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+     Стек:
+     #+BEGIN_SRC python
+       Press Ctrl + C for cancel...
+       Traceback (most recent call last):
+         File "/usr/local/bin/mail.py", line 2097, in <module>
+           mailchecker()
+         File "/usr/local/bin/mail.py", line 2089, in mailchecker
+           mc.checkmail_menu()
+         File "/usr/local/bin/mail.py", line 157, in checkmail_menu
+           mh.run()
+         File "/usr/local/bin/mail.py", line 525, in run
+           self._checkmail()
+         File "/usr/local/bin/mail.py", line 1079, in _checkmail
+           addr_subj_lst = self._checkmail_load_no_range()
+         File "/usr/local/bin/mail.py", line 1104, in _checkmail_load_no_range
+           addr_subj_lst = ch.get_pop3_addrsubj()
+         File "/usr/local/bin/mail.py", line 1839, in get_pop3_addrsubj
+           i, ('From', 'Subject'))
+         File "/usr/local/bin/mail.py", line 1937, in get_message_headers
+           headers = self._conn.top(message_number, 30)[1]
+         File "/usr/lib/python3.3/poplib.py", line 304, in top
+           return self._longcmd('TOP %s %s' % (which, howmuch))
+         File "/usr/lib/python3.3/poplib.py", line 162, in _longcmd
+           return self._getlongresp()
+         File "/usr/lib/python3.3/poplib.py", line 138, in _getlongresp
+           resp = self._getresp()
+         File "/usr/lib/python3.3/poplib.py", line 128, in _getresp
+           resp, o = self._getline()
+         File "/usr/lib/python3.3/poplib.py", line 110, in _getline
+           line = self.file.readline()
+         File "/usr/lib/python3.3/socket.py", line 294, in readinto
+           raise IOError("cannot read from timed out object")
+       OSError: cannot read from timed out object
+     #+END_SRC
+
+** BUG После отключенной сети не может соединиться с сервером
+   :PROPERTIES:
+   :issue_id: 51
+   :issue_type: bug
+   :END:
+
+   Если отключить сеть и проверить почту, программа пишет о
+   невозможности подключения.
+   При подключении сети обратно программа продолжает писать о
+   невозможности подключения и требуется перезапуск программы.
+
+   - Check mail: can't connect to server - FAIL
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+
+** BUG При скачивании сообщений сервер отказывает
+   :PROPERTIES:
+   :issue_id: 52
+   :issue_type: bug
+   :END:
+
+   - poplib.error_proto: b'-ERR [SYS/TEMP] unable to retrieve messages ...'
+     Место:
+       Меню проверки почты
+     Действия:
+       Проверить почту
+     Стек:
+     #+BEGIN_SRC python
+       Press Ctrl + C for cancel...
+       Traceback (most recent call last):
+         File "/usr/local/bin/mail.py", line 2131, in <module>
+           mailchecker()
+         File "/usr/local/bin/mail.py", line 2123, in mailchecker
+           mc.checkmail_menu()
+         File "/usr/local/bin/mail.py", line 157, in checkmail_menu
+           mh.run()
+         File "/usr/local/bin/mail.py", line 525, in run
+           self._checkmail()
+         File "/usr/local/bin/mail.py", line 1083, in _checkmail
+           addr_subj_lst = self._checkmail_load_no_range()
+         File "/usr/local/bin/mail.py", line 1108, in _checkmail_load_no_range
+           addr_subj_lst = ch.get_pop3_addrsubj()
+         File "/usr/local/bin/mail.py", line 1873, in get_pop3_addrsubj
+           i, ('From', 'Subject'))
+         File "/usr/local/bin/mail.py", line 1971, in get_message_headers
+           headers = self._conn.top(message_number, 30)[1]
+         File "/usr/lib/python3.3/poplib.py", line 304, in top
+           return self._longcmd('TOP %s %s' % (which, howmuch))
+         File "/usr/lib/python3.3/poplib.py", line 162, in _longcmd
+           return self._getlongresp()
+         File "/usr/lib/python3.3/poplib.py", line 138, in _getlongresp
+           resp = self._getresp()
+         File "/usr/lib/python3.3/poplib.py", line 131, in _getresp
+           raise error_proto(resp)
+       poplib.error_proto: b'-ERR [SYS/TEMP] unable to retrieve messages, contact system administrator. sc=PXTRBACYteA1_150033_15o'
+       [guest@localhost ~]$
+     #+END_SRC
+
+   [2017-01-15 Вс]
+
+   Когда проверяешь один ящик, а потом тут же проверяешь второй, может
+   возникнуть такое исключение. Программа выпадает, а нужно просто
+   отлавливать исключение и писать информацию в статусной строке.
+
+
+* Окружение
+  :PROPERTIES:
+  :COLUMNS:  %3issue_id(ID) %4issue_type(TYPE) %TODO %40ITEM %SCHEDULED %DEADLINE %1PRIORITY
+  :ARCHIVE:  tasks_archive.org::* Архив окружения
+  :END:
+
+** TASK Сделать Makefile
+   :PROPERTIES:
+   :issue_id: 50
+   :issue_type: task
+   :END:
+
+   [2016-12-29 Чт]
+
+   - [ ] Сделать автоматическое версионирование программы (через m4).
+     Программа запускается и локально для отладки, поэтому нужно
+     предусмотреть формирование отладочной локальной версии.
+   - [ ] Сделать возможность установки программы.
+   - [ ] Сделать возможность удаления программы.
+   - [ ] Сделать возможность очистки проекта от лишних файлов.
+
+** TASK Сделать скрипт для формирования релиза
+   :PROPERTIES:
+   :issue_id: 3
+   :issue_type: task
+   :END:
+
+   - [ ] Релиз для Linux
+     - замена файла с аккаунтами на реальный
+   - [ ] Релиз для Windows
+     - замена файла с аккаунтами на реальный
+     - сообщения с подсказками про клавиши
+
+** TASK Сделать README
+   :PROPERTIES:
+   :issue_id: 53
+   :issue_type: task
+   :END:
+
+   [2017-03-26 Вс]
+
+   - [ ] Перевести на английский.
+   - [ ] Сделать оглавление и секции.
+
+** TASK [#A] Приготовить репозиторий к публикации
+   :PROPERTIES:
+   :issue_id: 54
+   :issue_type: task
+   :END:
+
+   [2017-03-26 Вс]
+
+   - [ ] Поискать пароли в истории
+   - [ ] Поставить правильно версии
+   - [ ] Поставить правильно ветки
+   - [ ] Настроить автора и почту
+   - [ ] Установить программу пользователю
+   - [ ] Провести программу через линтер
