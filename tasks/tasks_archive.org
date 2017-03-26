@@ -641,3 +641,21 @@
    общий баг, то они будут копироваться в Linux-версию. А с момента
    разделения на две копии версии будут существовать раздельно.
 
+** DONE Сделать скрипт для формирования релиза
+   CLOSED: [2017-03-26 Вс 19:19]
+   :PROPERTIES:
+   :issue_id: 3
+   :issue_type: task
+   :ARCHIVE_TIME: 2017-03-26 Вс 19:22
+   :ARCHIVE_FILE: ~/prog/projects/python/checkmail/checkmail-lin/tasks/tasks.org
+   :ARCHIVE_OLPATH: Окружение
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   - [ ] Релиз для Linux
+     - замена файла с аккаунтами на реальный
+   - [ ] Релиз для Windows
+     - замена файла с аккаунтами на реальный
+     - сообщения с подсказками про клавиши
+
