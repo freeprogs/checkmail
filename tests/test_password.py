@@ -4,7 +4,7 @@ import unittest
 
 import sys
 sys.path.append('..')
-from mail import (PswDecryptError, PasswordHandler)
+from checkmail import (PswDecryptError, PasswordHandler)
 
 
 class PasswordHandlerGoodInput(unittest.TestCase):
