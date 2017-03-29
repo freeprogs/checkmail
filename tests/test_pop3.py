@@ -5,14 +5,14 @@ from unittest.mock import patch
 
 import sys
 sys.path.append('..')
-from mail import (Pop3ConnectServerError,
-                  Pop3ConnectPortError,
-                  Pop3ConnectTimeoutError,
-                  Pop3LoginError,
-                  Pop3LoginTimeoutError,
-                  Pop3TopTimeoutError,
-                  Pop3CantDecodeHeaders,
-                  Pop3Handler)
+from checkmail import (Pop3ConnectServerError,
+                       Pop3ConnectPortError,
+                       Pop3ConnectTimeoutError,
+                       Pop3LoginError,
+                       Pop3LoginTimeoutError,
+                       Pop3TopTimeoutError,
+                       Pop3CantDecodeHeaders,
+                       Pop3Handler)
 import poplib
 
 import socket
