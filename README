@@ -1,4 +1,7 @@
 
-Проверяет почту.
-Выводит количество сообщений в ящике, адресы и темы.
+__PROGRAM_NAME__ __PROGRAM_VERSION__
 
+Checks mail for incoming messages.
+
+If some mail has come it prints number of messages in the box and some
+their headers like sender address and subject.
