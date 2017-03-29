@@ -4,7 +4,7 @@ import unittest
 
 import sys
 sys.path.append('..')
-from mail import AccountHandler
+from checkmail import AccountHandler
 
 
 class AccountHandlerGoodInput(unittest.TestCase):

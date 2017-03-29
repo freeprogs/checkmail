@@ -32,6 +32,8 @@ TARGET_README = README
 TARGET_NEWS = NEWS
 TARGET_LICENSE = LICENSE
 
+TARGET_TEST_TESTACCOUNT = test_account.py
+
 TEST_CACHE_DIR = __pycache__
 
 
@@ -44,6 +46,9 @@ BUILD_DIR = $(build_dir)
 
 docs_dir = docs
 DOCS_DIR = $(docs_dir)
+
+tests_dir = tests
+TESTS_DIR = $(tests_dir)
 
 VERSION_M4 = version.m4
 
@@ -64,7 +69,7 @@ DOCS_INSTALL_DIR = $(system_docs_dir)/$(PROG)
 all: build
 
 help:
-	@echo "usage: make [ clean | install | uninstall ]"
+	@echo "usage: make [ clean | test | install | uninstall ]"
 
 build:
 	@[ -d $(BUILD_DIR) ] $&& rm -rf $(BUILD_DIR)
@@ -78,6 +83,9 @@ build:
 	@$(M4) $(VERSION_M4) $(TARGET_NEWS) > $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_NEWS)
 	@cp $(TARGET_LICENSE) $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_LICENSE)
 
+	@mkdir $(BUILD_DIR)/$(TESTS_DIR)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT)
+
 	@echo "$(PROG) has built in the \`$(BUILD_DIR)' directory."
 
 clean:
@@ -85,6 +93,9 @@ clean:
 	@rm -rf $(BUILD_DIR)
 	@rm -f $(SELF)
 	@echo "$(PROG) has cleaned."
+
+test:
+	@cd $(BUILD_DIR)/$(TESTS_DIR) && python3 -m unittest -v
 
 install:
 	@[ -d $(BUILD_DIR) ] || { \
@@ -105,4 +116,4 @@ uninstall:
 	rm -rf $(DOCS_INSTALL_DIR)
 	@echo "$(PROG) has uninstalled."
 
-.PHONY: all help build clean install uninstall
+.PHONY: all help build clean test install uninstall
