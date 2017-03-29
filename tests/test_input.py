@@ -1,20 +1,41 @@
 #!/usr/bin/env python3
 
+# This file is a part of __PROGRAM_NAME__ __PROGRAM_VERSION__
+#
+# This file installs __PROGRAM_NAME__.py and some scripts in the operating
+# system, cleans temporary files and directory in the project.
+#
+# __PROGRAM_COPYRIGHT__ __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 import unittest
 from unittest.mock import patch
 
 import sys
 sys.path.append('..')
-from mail import (InputHandler,
-                  InputNumNone,
-                  InputNumError,
-                  InputNumRangeError)
+from checkmail import (InputHandler,
+                       InputNumNone,
+                       InputNumError,
+                       InputNumRangeError)
 
 
 class InputHandlerGoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.m1 = self.p1.start()
         self.p2 = patch('getpass.getpass')
         self.m2 = self.p2.start()
@@ -229,7 +250,7 @@ class InputHandlerGoodInput(unittest.TestCase):
 class InputHandlerBadInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.m1 = self.p1.start()
         self.p2 = patch('getpass.getpass')
         self.m2 = self.p2.start()

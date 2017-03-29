@@ -32,6 +32,16 @@ TARGET_README = README
 TARGET_NEWS = NEWS
 TARGET_LICENSE = LICENSE
 
+TARGET_TEST_TESTACCFILE = test_accfile.py
+TARGET_TEST_TESTACCOUNT = test_account.py
+TARGET_TEST_TESTACCVIEWER = test_accviewer.py
+TARGET_TEST_TESTCONNECTION = test_connection.py
+TARGET_TEST_TESTHEADERS = test_headers.py
+TARGET_TEST_TESTINPUT = test_input.py
+TARGET_TEST_TESTMODES = test_modes.py
+TARGET_TEST_TESTPASSWORD = test_password.py
+TARGET_TEST_TESTPOP3 = test_pop3.py
+
 TEST_CACHE_DIR = __pycache__
 
 
@@ -44,6 +54,9 @@ BUILD_DIR = $(build_dir)
 
 docs_dir = docs
 DOCS_DIR = $(docs_dir)
+
+tests_dir = tests
+TESTS_DIR = $(tests_dir)
 
 VERSION_M4 = version.m4
 
@@ -64,7 +77,7 @@ DOCS_INSTALL_DIR = $(system_docs_dir)/$(PROG)
 all: build
 
 help:
-	@echo "usage: make [ clean | install | uninstall ]"
+	@echo "usage: make [ clean | test | install | uninstall ]"
 
 build:
 	@[ -d $(BUILD_DIR) ] $&& rm -rf $(BUILD_DIR)
@@ -78,6 +91,17 @@ build:
 	@$(M4) $(VERSION_M4) $(TARGET_NEWS) > $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_NEWS)
 	@cp $(TARGET_LICENSE) $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_LICENSE)
 
+	@mkdir $(BUILD_DIR)/$(TESTS_DIR)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCFILE) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCFILE)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCVIEWER) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCVIEWER)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTCONNECTION) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTCONNECTION)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTHEADERS) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTHEADERS)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTINPUT) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTINPUT)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTMODES) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTMODES)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTPASSWORD) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTPASSWORD)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTPOP3) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTPOP3)
+
 	@echo "$(PROG) has built in the \`$(BUILD_DIR)' directory."
 
 clean:
@@ -85,6 +109,9 @@ clean:
 	@rm -rf $(BUILD_DIR)
 	@rm -f $(SELF)
 	@echo "$(PROG) has cleaned."
+
+test:
+	@cd $(BUILD_DIR)/$(TESTS_DIR) && python3 -m unittest -v
 
 install:
 	@[ -d $(BUILD_DIR) ] || { \
@@ -105,4 +132,4 @@ uninstall:
 	rm -rf $(DOCS_INSTALL_DIR)
 	@echo "$(PROG) has uninstalled."
 
-.PHONY: all help build clean install uninstall
+.PHONY: all help build clean test install uninstall
