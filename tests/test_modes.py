@@ -4,7 +4,7 @@ import unittest
 
 import sys
 sys.path.append('..')
-from mail import ModesHandler
+from checkmail import ModesHandler
 
 
 class ModeRangeGoodInput(unittest.TestCase):
