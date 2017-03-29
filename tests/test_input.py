@@ -5,16 +5,16 @@ from unittest.mock import patch
 
 import sys
 sys.path.append('..')
-from mail import (InputHandler,
-                  InputNumNone,
-                  InputNumError,
-                  InputNumRangeError)
+from checkmail import (InputHandler,
+                       InputNumNone,
+                       InputNumError,
+                       InputNumRangeError)
 
 
 class InputHandlerGoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.m1 = self.p1.start()
         self.p2 = patch('getpass.getpass')
         self.m2 = self.p2.start()
@@ -229,7 +229,7 @@ class InputHandlerGoodInput(unittest.TestCase):
 class InputHandlerBadInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.m1 = self.p1.start()
         self.p2 = patch('getpass.getpass')
         self.m2 = self.p2.start()
