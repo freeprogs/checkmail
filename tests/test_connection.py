@@ -5,16 +5,16 @@ from unittest.mock import patch
 
 import sys
 sys.path.append('..')
-from mail import (ConnectionHandler,
-                  ConnectionRangeError,
-                  Pop3TopTimeoutError,
-                  Pop3CantDecodeHeaders)
+from checkmail import (ConnectionHandler,
+                       ConnectionRangeError,
+                       Pop3TopTimeoutError,
+                       Pop3CantDecodeHeaders)
 
 
 class ConnectionHandlerPop3GoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.Pop3Handler', autospec=True)
+        self.p1 = patch('checkmail.Pop3Handler', autospec=True)
         self.m1 = self.p1.start()
 
     def tearDown(self):
@@ -145,7 +145,7 @@ class ConnectionHandlerPop3GoodInput(unittest.TestCase):
 class ConnectionHandlerPop3RangeGoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p1 = patch('mail.Pop3Handler', autospec=True)
+        self.p1 = patch('checkmail.Pop3Handler', autospec=True)
         self.m1 = self.p1.start()
 
     def tearDown(self):
