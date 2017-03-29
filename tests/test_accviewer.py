@@ -6,14 +6,14 @@ import io
 
 import sys
 sys.path.append('..')
-from mail import AccViewerHandler
+from checkmail import AccViewerHandler
 
 
 class AccViewerHandlerGoodInput(unittest.TestCase):
 
     def setUp(self):
         sys.stdout = io.StringIO()
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.p2 = patch('os.system')
         self.m1 = self.p1.start()
         self.m2 = self.p2.start()
@@ -408,7 +408,7 @@ class AccViewerHandlerBadInput(unittest.TestCase):
 
     def setUp(self):
         sys.stdout = io.StringIO()
-        self.p1 = patch('mail.input', create=True)
+        self.p1 = patch('checkmail.input', create=True)
         self.p2 = patch('os.system')
         self.m1 = self.p1.start()
         self.m2 = self.p2.start()
