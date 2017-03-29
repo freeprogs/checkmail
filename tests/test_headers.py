@@ -4,7 +4,7 @@ import unittest
 
 import sys
 sys.path.append('..')
-from mail import HeadersHandler
+from checkmail import HeadersHandler
 
 
 class HeadersHandlerGoodInput(unittest.TestCase):
