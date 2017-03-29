@@ -5,17 +5,17 @@ from unittest.mock import patch
 
 import sys
 sys.path.append('..')
-from mail import (AccFileNoFileError,
-                  AccFileNotFileError,
-                  AccFileFieldsError,
-                  AccFileHandler)
+from checkmail import (AccFileNoFileError,
+                       AccFileNotFileError,
+                       AccFileFieldsError,
+                       AccFileHandler)
 
 
 class ReadFileGoodInput(unittest.TestCase):
 
     def setUp(self):
         self.p1 = patch('os.path')
-        self.p2 = patch('mail.open', create=True)
+        self.p2 = patch('checkmail.open', create=True)
         self.m1 = self.p1.start()
         self.m1.exists.return_value = True
         self.m1.isfile.return_value = True
@@ -418,7 +418,7 @@ class ReadFileBadInput(unittest.TestCase):
 
     def setUp(self):
         self.p1 = patch('os.path')
-        self.p2 = patch('mail.open', create=True)
+        self.p2 = patch('checkmail.open', create=True)
         self.m1 = self.p1.start()
         self.m1.exists.return_value = True
         self.m1.isfile.return_value = True
@@ -602,7 +602,7 @@ class ReadFileBadInput(unittest.TestCase):
 class WriteFileGoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p = patch('mail.open', create=True)
+        self.p = patch('checkmail.open', create=True)
         self.m = self.p.start()
         self.ostream = \
             self.m.return_value. \
@@ -854,7 +854,7 @@ class WriteFileGoodInput(unittest.TestCase):
 class WriteFileBadInput(unittest.TestCase):
 
     def setUp(self):
-        self.p = patch('mail.open', create=True)
+        self.p = patch('checkmail.open', create=True)
         self.m = self.p.start()
         self.ostream = \
             self.m.return_value. \
@@ -904,7 +904,7 @@ class WriteFileBadInput(unittest.TestCase):
 class AccountEncryptionGoodInput(unittest.TestCase):
 
     def setUp(self):
-        self.p = patch('mail.PasswordHandler')
+        self.p = patch('checkmail.PasswordHandler')
         self.m = self.p.start()
         self.m.return_value.encrypt_sum = \
             lambda s, p: '<{}>{}'.format((p, 'password')[p is None], s)
@@ -983,7 +983,7 @@ class AccountEncryptionGoodInput(unittest.TestCase):
 class AccountEncryptionBadInput(unittest.TestCase):
 
     def setUp(self):
-        self.p = patch('mail.PasswordHandler')
+        self.p = patch('checkmail.PasswordHandler')
         self.m = self.p.start()
         self.m.return_value.encrypt_sum = \
             lambda s, p: '<{}>{}'.format((p, 'password')[p is None], s)
