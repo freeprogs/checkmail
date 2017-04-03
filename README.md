@@ -10,7 +10,15 @@ message headers like sender address and subject.
 
 ### Requirements
 
-This program has tested in Linux Fedora 20 with Python 3.x installed.
+This program has tested in Linux Fedora 20 with Python 3.3.2 and
+installed site package pycrypto 2.6.1.
+
+You can find pycrypto at:
+https://pypi.python.org/pypi/pycrypto/
+
+It may work in older linux distributions and Python 3.x. The main
+thing here is the Python version greater than 2.x and installed
+pycrypto.
 
 ### Building
 

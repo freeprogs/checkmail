@@ -36,10 +36,15 @@ README
 
 0. REQUIREMENTS
 
-This program has tested in Linux Fedora 20 with Python 3.x installed.
+This program has tested in Linux Fedora 20 with Python 3.3.2 and
+installed site package pycrypto 2.6.1.
 
-It may work in older linux distributions, the main thing here is the
-Python version.
+You can find pycrypto at:
+https://pypi.python.org/pypi/pycrypto/
+
+It may work in older linux distributions and Python 3.x. The main
+thing here is the Python version greater than 2.x and installed
+pycrypto.
 
 
 1. CONFIGURATION
