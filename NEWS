@@ -12,6 +12,32 @@ Changed
 
 Fixed
 
+[0.0.2] - 2017-04-03
+
+Added
+- Unittests for some modules.
+- A feature to view last checked messages locally.
+- A feature to check messages in some range.
+- Current account name indicator.
+- Installation procedure: build, test, install, uninstall.
+
+Changed
+- Protocol POP3 to POP3S.
+- The crypto algorithm in the accounts file from XOR to AES128.
+- Removed Windows version (factored out to a separate repository).
+- The program name mail.py changed to __PROGRAM_NAME__ .
+
+Fixed
+- Now, if charset of headers is unknown it uses latin1.
+- Now, passwords may by Cyrillic (or another non-English language).
+- Canceling 100 messages if one message is corrupted.
+- A message with encorrect encoding raised an exception.
+  Now, it writes "can't decode header".
+- A message with time out exhausted raised an exception.
+  Now, it tries three times and writes "can't receive header".
+- A Cyrillic input in the menu raised an exception.
+- Ctrl+D with empty input in the file saving menu item raised exception.
+
 [0.0.1] - 2013-04-09
 
 Added
