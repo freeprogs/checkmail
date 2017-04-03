@@ -1,0 +1,42 @@
+
+This is the change log of __PROGRAM_NAME__ __PROGRAM_VERSION__
+
+Change Log
+All notable changes to this project will be documented in this file.
+
+Unreleased
+
+Added
+
+Changed
+
+Fixed
+
+[0.0.1] - 2013-04-09
+
+Added
+- Handling of Ctrl+D for canceling or go to parent menu item.
+- Handling of Ctrl+C for exit from the program.
+- A view for accounts.
+
+Changed
+- Menu optimized with final-state machine.
+  Now, it's possible to make more menu items with more flexible
+  reactions.
+
+[0.0.0] - 2013-01-30
+
+Added
+- Basic functionality from the previous procedural version.
+  There are almost equal Linux and Windows versions of the program.
+  Functionality:
+  Console menu for actions.
+  A file with accounts for saving and loading.
+  A view for mailbox messages.
+
+Changed
+- Procedural code style translated to modular style.
+  Now, the program is a set of modules implemented as classes. It's
+  not OOP (inheritance + encapsulation + polymorphism), it's just
+  modules (data + methods over data) and functions, using that
+  modules.
