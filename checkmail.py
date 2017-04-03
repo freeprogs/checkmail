@@ -1,8 +1,40 @@
 #!/usr/bin/env python3
 
-PROG = 'CheckMail'
-VERSION = '0.0.1'
+# __PROGRAM_NAME__ __PROGRAM_VERSION__
+#
+# __PROGRAM_COPYRIGHT__ __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+"""Checks mail for incoming messages.
+
+If some mail has come it prints number of messages in the box and some
+message headers like sender address and subject.
+
+"""
+
+__version__ = '__PROGRAM_VERSION_NO_V__'
+__date__ = '__PROGRAM_DATE__'
+__author__ = '__PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__'
+__license__ = 'GNU GPLv3'
+
+
+PROG = '__PROGRAM_NAME__'
+VERSION = '__PROGRAM_VERSION__'
+
+import sys
+import argparse
 import os
 import csv
 import math
@@ -2127,5 +2159,33 @@ def mailchecker():
         print('Bye')
     mc.end()
 
-if __name__ == '__main__':
+
+def get_prog_args():
+    """Parse command line arguments to a handy object with attributes."""
+    desc = """\
+Checks mail for incoming messages.
+
+If some mail has come it prints number of messages in the box and some
+message headers like sender address and subject."""
+    parser = argparse.ArgumentParser(
+        description=desc,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('--version', '-V',
+                        action='version',
+                        version='%(prog)s ' + 'v' + __version__)
+    parser.add_argument('--license',
+                        action='version',
+                        version='License: ' + __license__ +
+                        ', see more details in file LICENSE'
+                        ' or at <http://www.gnu.org/licenses/>.',
+                        help='show program\'s license and exit')
+    return parser.parse_args()
+
+def main():
+    args = get_prog_args()
     mailchecker()
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,68 @@
+
+This is the change log of __PROGRAM_NAME__ __PROGRAM_VERSION__
+
+Change Log
+All notable changes to this project will be documented in this file.
+
+Unreleased
+
+Added
+
+Changed
+
+Fixed
+
+[0.0.2] - 2017-04-03
+
+Added
+- Unittests for some modules.
+- A feature to view last checked messages locally.
+- A feature to check messages in some range.
+- Current account name indicator.
+- Installation procedure: build, test, install, uninstall.
+
+Changed
+- Protocol POP3 to POP3S.
+- The crypto algorithm in the accounts file from XOR to AES128.
+- Removed Windows version (factored out to a separate repository).
+- The program name mail.py changed to __PROGRAM_NAME__ .
+
+Fixed
+- Now, if charset of headers is unknown it uses latin1.
+- Now, passwords may by Cyrillic (or another non-English language).
+- Canceling 100 messages if one message is corrupted.
+- A message with encorrect encoding raised an exception.
+  Now, it writes "can't decode header".
+- A message with time out exhausted raised an exception.
+  Now, it tries three times and writes "can't receive header".
+- A Cyrillic input in the menu raised an exception.
+- Ctrl+D with empty input in the file saving menu item raised exception.
+
+[0.0.1] - 2013-04-09
+
+Added
+- Handling of Ctrl+D for canceling or go to parent menu item.
+- Handling of Ctrl+C for exit from the program.
+- A view for accounts.
+
+Changed
+- Menu optimized with final-state machine.
+  Now, it's possible to make more menu items with more flexible
+  reactions.
+
+[0.0.0] - 2013-01-30
+
+Added
+- Basic functionality from the previous procedural version.
+  There are almost equal Linux and Windows versions of the program.
+  Functionality:
+  Console menu for actions.
+  A file with accounts for saving and loading.
+  A view for mailbox messages.
+
+Changed
+- Procedural code style translated to modular style.
+  Now, the program is a set of modules implemented as classes. It's
+  not OOP (inheritance + encapsulation + polymorphism), it's just
+  modules (data + methods over data) and functions, using that
+  modules.
