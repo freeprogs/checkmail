@@ -31,6 +31,7 @@ TARGET_PYTHON_SCRIPT = __PROGRAM_NAME__.py
 TARGET_README = README
 TARGET_NEWS = NEWS
 TARGET_LICENSE = LICENSE
+TARGET_ACCOUNT = .__PROGRAM_NAME__-account
 
 TARGET_TEST_TESTACCFILE = test_accfile.py
 TARGET_TEST_TESTACCOUNT = test_account.py
@@ -71,13 +72,15 @@ PYTHON_SCRIPT_INSTALL_DIR = $(python_script_dir)
 
 DOCS_INSTALL_DIR = $(system_docs_dir)/$(PROG)
 
+ACCOUNT_INSTALL_DIR = $(home_dir)
+
 
 # Commands
 
 all: build
 
 help:
-	@echo "usage: make [ clean | test | install | uninstall ]"
+	@echo "usage: make [ clean | test | install | uninstall | uninstall-all ]"
 
 build:
 	@[ -d $(BUILD_DIR) ] $&& rm -rf $(BUILD_DIR)
@@ -132,4 +135,10 @@ uninstall:
 	rm -rf $(DOCS_INSTALL_DIR)
 	@echo "$(PROG) has uninstalled."
 
-.PHONY: all help build clean test install uninstall
+uninstall-all:
+	rm -f $(PYTHON_SCRIPT_INSTALL_DIR)/$(TARGET_PYTHON_SCRIPT)
+	rm -rf $(DOCS_INSTALL_DIR)
+	rm -f $(ACCOUNT_INSTALL_DIR)/$(TARGET_ACCOUNT)
+	@echo "$(PROG) has uninstalled."
+
+.PHONY: all help build clean test install uninstall uninstall-all
