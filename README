@@ -4,4 +4,292 @@ __PROGRAM_NAME__ __PROGRAM_VERSION__
 Checks mail for incoming messages.
 
 If some mail has come it prints number of messages in the box and some
-their headers like sender address and subject.
+message headers like sender address and subject.
+
+========================================================================
+
+README
+
+ 0. Requirements
+ 1. Configuration
+ 2. Building
+   2.1 Build files
+   2.2 Run tests
+ 3. Installation
+   3.1 General installation
+   3.2 Installation to custom directories
+   3.3 How to uninstall the program
+ 4. Operating
+   4.1 Menu
+   4.2 Saving accounts
+   4.3 Passwords
+   4.4 Modes
+ 5. Files
+ 6. Copyright
+ 7. Licensing
+ 8. Contacts
+ 9. Bugs
+10. Troubleshooting
+11. Acknowledgments
+
+========================================================================
+
+0. REQUIREMENTS
+
+This program has tested in Linux Fedora 20 with Python 3.x installed.
+
+It may work in older linux distributions, the main thing here is the
+Python version.
+
+
+1. CONFIGURATION
+
+To configure Makefile for building the program run:
+
+  ./configure
+
+Another configuration of this program is automated in Makefile.
+Run `make help' to know available commands.
+
+
+2. BUILDING
+
+2.1 Build files
+
+At first, you should build the program, run:
+
+   `make'
+
+It will create the `build' directory with files and directories ready
+for installation.
+
+You can take these files directly, as they are ready for using.
+
+2.2 Run tests
+
+After the program has built, you can run program tests to know that
+everything works well:
+
+   `make test'
+
+If all tests pass, you can install the program, otherwise look in the
+bugs section of this file.
+
+
+3. INSTALLATION
+
+3.1 General installation
+
+When the program has built, you can install it, run:
+
+   `sudo make install'
+
+By default the python script will be installed to the `/usr/local/bin'
+directory.
+
+3.2 Installation to custom directories
+
+You can also replace build and install directories from the command
+line.
+
+To change a default directory to a custom directory, just run:
+
+  `make "build_dir=mydir"'  (default `build')
+
+  `make "docs_dir=mydir"'  (default `docs')
+
+  `sudo make "python_script_dir=mydir" install'  (default `/usr/local/bin')
+
+  `sudo make "system_docs_dir=mydir" install'  (default `/usr/share/doc')
+
+If you have built a custom directory, then while installation in some
+cases you should pass it again because make doesn't remember it.
+
+3.3 How to uninstall the program
+
+To uninstall the program run command:
+
+  `sudo make uninstall'
+
+It will uninstall only the script and its documentation from the system.
+
+To uninstall all program files, including accounts in the home
+directory, run:
+
+  `sudo make uninstall-all'
+
+It may be hard to recover the accounts file, therefore uninstall
+methods are separated.
+
+If the program was installed to custom directories, you should pass
+these directories through variables to `make'.
+
+
+4. OPERATING
+
+Some information about the program you can read in the help of
+__PROGRAM_NAME__.py. Just run:
+
+  `__PROGRAM_NAME__.py -h'
+
+To use the program just run:
+
+  `__PROGRAM_NAME__.py'
+
+It will show the menu where you can select items and do any actions.
+
+4.1 Menu
+
+Set config
+  Set account
+    Config file
+      Load account
+        View
+        Select
+        Show
+      Save account
+    Interactive
+      Name
+      Server
+      Port
+      User
+      Password
+      Show
+      Clear
+  Set modes
+    Message range
+    Show modes
+Check mail
+Show last
+
+Using this menu you can check a mail box without saving its data to
+the disk (interactively), program will not remember it or write
+anywhere on the disk.
+
+4.2 Saving accounts
+
+You can save an account to the disk for future loading. You can save
+an account with its password or without its password and then enter
+the password like in the usual interactive mode.
+
+If you save the account, it goes to `~/.__PROGRAM_NAME__-account' in
+the form:
+
+Name:Server:Port:Login:Password+AES128+Base64
+
+Example:
+
+Youtube:pop3.yandex.ru:995:youtube:W8gOIicw7TozPCBlSqMLqg==
+
+This file intentionally was made editable by hands, so you can edit it
+either from the program (only append) or open it manually in a text
+editor.
+
+All saved accounts you can view in the program by the internal viewer.
+
+You can save 10000 accounts there and maybe more.
+
+4.3 Passwords
+
+If you save the account password it is encrypted with a strong
+algorithm (AES128). You can use the default program password to
+encrypt your account password (the default is "password") so anyone
+can decrypt it or you can use a custom password for the account
+password. The account password or password for the account password
+can be in any language.
+
+4.4 Modes
+
+There is one additional mode in the program:
+
+range mode - set the range for messages numbers
+
+If you have many messages in the box, but want to load only several of
+them, you can set the range as start and end number.
+
+
+5. FILES
+
+README            This file.
+
+README.md         The file with project description in markdown.
+                  Needed for automatic description generated on web.
+
+LICENSE           The text of license.
+
+NEWS              The information about all program versions.
+
+__PROGRAM_NAME__.py      The main program.
+
+Other files exist for building the program.
+
+
+6. COPYRIGHT
+
+__PROGRAM_COPYRIGHT__ __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__
+
+
+7. LICENSING
+
+You can read license in file LICENSE in the distribution or program
+documenatation (`/usr/share/doc/__PROGRAM_NAME__').
+
+GNU GPLv3
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+8. CONTACTS
+
+To know last information about the program go to:
+__PROGRAM_WEBSITE_FIRST__
+
+The secondary site:
+__PROGRAM_WEBSITE_SECOND__
+
+Also to get last sources go to:
+__PROGRAM_SOURCES__
+
+
+9. BUGS
+
+To write about bugs and features you can go to the website or write an
+email to:
+
+  __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__
+
+or use the bugtracking system on:
+
+  __PROGRAM_SOURCES__
+
+
+10. TROUBLESHOOTING
+
+1)
+There may be corrupted mail messages causing program fall. It is
+impossible to handle all of such situations. Usually the program
+writes "can't decode headers" for such messages, but sometimes can
+occur unexpected situatuation and program may fall. In such cases
+remove corrupted message from the box.
+
+2)
+There may occur connection errors on the base network level and
+program may fall. Usually the program writes "can't receive headers",
+but sometimes can occur unexpected situatuation and program may
+fall. In such cases just reconnect.
+
+
+11. ACKNOWLEDGMENTS
+
+At the moment I'm sole here __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__.
