@@ -20,7 +20,7 @@
 """Checks mail for incoming messages.
 
 If some mail has come it prints number of messages in the box and some
-their headers like sender address and subject.
+message headers like sender address and subject.
 
 """
 
@@ -2166,7 +2166,7 @@ def get_prog_args():
 Checks mail for incoming messages.
 
 If some mail has come it prints number of messages in the box and some
-their headers like sender address and subject."""
+message headers like sender address and subject."""
     parser = argparse.ArgumentParser(
         description=desc,
         formatter_class=argparse.RawDescriptionHelpFormatter
