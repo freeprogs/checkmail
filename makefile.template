@@ -1,0 +1,148 @@
+
+# This file is a part of __PROGRAM_NAME__ __PROGRAM_VERSION__
+#
+# This file installs __PROGRAM_NAME__.py and some scripts in the operating
+# system, cleans temporary files and directory in the project.
+#
+# __PROGRAM_COPYRIGHT__ __PROGRAM_AUTHOR__ __PROGRAM_AUTHOR_EMAIL__
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Names section
+
+PROG = __PROGRAM_NAME__
+
+SELF = Makefile
+
+TARGET_PYTHON_SCRIPT = __PROGRAM_NAME__.py
+
+TARGET_README = README
+TARGET_NEWS = NEWS
+TARGET_LICENSE = LICENSE
+TARGET_ACCOUNT = .__PROGRAM_NAME__-account
+
+TARGET_TEST_TESTACCFILE = test_accfile.py
+TARGET_TEST_TESTACCOUNT = test_account.py
+TARGET_TEST_TESTACCVIEWER = test_accviewer.py
+TARGET_TEST_TESTCONNECTION = test_connection.py
+TARGET_TEST_TESTHEADERS = test_headers.py
+TARGET_TEST_TESTINPUT = test_input.py
+TARGET_TEST_TESTMODES = test_modes.py
+TARGET_TEST_TESTPASSWORD = test_password.py
+TARGET_TEST_TESTPOP3 = test_pop3.py
+
+TEST_CACHE_DIR = __pycache__
+
+
+# Build section
+
+M4 = m4 -P
+
+build_dir = build
+BUILD_DIR = $(build_dir)
+
+docs_dir = docs
+DOCS_DIR = $(docs_dir)
+
+tests_dir = tests
+TESTS_DIR = $(tests_dir)
+
+VERSION_M4 = version.m4
+
+
+# Install section
+
+home_dir = __USER_HOME__
+python_script_dir = /usr/local/bin
+system_docs_dir = /usr/share/doc
+
+PYTHON_SCRIPT_INSTALL_DIR = $(python_script_dir)
+
+DOCS_INSTALL_DIR = $(system_docs_dir)/$(PROG)
+
+ACCOUNT_INSTALL_DIR = $(home_dir)
+
+
+# Commands
+
+all: build
+
+help:
+	@echo "usage: make [ clean | test | install | uninstall | uninstall-all ]"
+
+build:
+	@[ -d $(BUILD_DIR) ] $&& rm -rf $(BUILD_DIR)
+	@mkdir $(BUILD_DIR)
+
+	@$(M4) $(VERSION_M4) $(TARGET_PYTHON_SCRIPT) > $(BUILD_DIR)/$(TARGET_PYTHON_SCRIPT)
+	@chmod u+x $(BUILD_DIR)/$(TARGET_PYTHON_SCRIPT)
+
+	@mkdir $(BUILD_DIR)/$(DOCS_DIR)
+	@$(M4) $(VERSION_M4) $(TARGET_README) > $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_README)
+	@$(M4) $(VERSION_M4) $(TARGET_NEWS) > $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_NEWS)
+	@cp $(TARGET_LICENSE) $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_LICENSE)
+
+	@mkdir $(BUILD_DIR)/$(TESTS_DIR)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCFILE) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCFILE)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCOUNT)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTACCVIEWER) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTACCVIEWER)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTCONNECTION) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTCONNECTION)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTHEADERS) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTHEADERS)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTINPUT) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTINPUT)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTMODES) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTMODES)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTPASSWORD) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTPASSWORD)
+	@$(M4) $(VERSION_M4) $(TESTS_DIR)/$(TARGET_TEST_TESTPOP3) > $(BUILD_DIR)/$(TESTS_DIR)/$(TARGET_TEST_TESTPOP3)
+	@touch $(BUILD_DIR)/$(TARGET_ACCOUNT)
+
+	@echo "$(PROG) has built in the \`$(BUILD_DIR)' directory."
+
+clean:
+	@rm -rf $(TEST_CACHE_DIR)
+	@rm -rf $(BUILD_DIR)
+	@rm -f $(SELF)
+	@echo "$(PROG) has cleaned."
+
+test:
+	@cd $(BUILD_DIR)/$(TESTS_DIR) && python3 -m unittest -v
+
+install:
+	@[ -d $(BUILD_DIR) ] || { \
+            echo "error: Build directory not found." 1>&2;\
+            echo "error: Should to run \`make' first." 1>&2;\
+            exit 1;\
+        }
+	install -d $(PYTHON_SCRIPT_INSTALL_DIR)
+	install $(BUILD_DIR)/$(TARGET_PYTHON_SCRIPT) $(PYTHON_SCRIPT_INSTALL_DIR)/$(TARGET_PYTHON_SCRIPT)
+
+	install -d $(DOCS_INSTALL_DIR)
+	install -m 644 $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_README) $(DOCS_INSTALL_DIR)/$(TARGET_README)
+	install -m 644 $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_NEWS) $(DOCS_INSTALL_DIR)/$(TARGET_NEWS)
+	install -m 644 $(BUILD_DIR)/$(DOCS_DIR)/$(TARGET_LICENSE) $(DOCS_INSTALL_DIR)/$(TARGET_LICENSE)
+	@[ -f $(ACCOUNT_INSTALL_DIR)/$(TARGET_ACCOUNT) ] || \
+            cp -p $(BUILD_DIR)/$(TARGET_ACCOUNT) $(ACCOUNT_INSTALL_DIR)
+	@echo "$(PROG) has installed."
+
+uninstall:
+	rm -f $(PYTHON_SCRIPT_INSTALL_DIR)/$(TARGET_PYTHON_SCRIPT)
+	rm -rf $(DOCS_INSTALL_DIR)
+	@echo "$(PROG) has uninstalled."
+
+uninstall-all:
+	rm -f $(PYTHON_SCRIPT_INSTALL_DIR)/$(TARGET_PYTHON_SCRIPT)
+	rm -rf $(DOCS_INSTALL_DIR)
+	rm -f $(ACCOUNT_INSTALL_DIR)/$(TARGET_ACCOUNT)
+	@echo "$(PROG) has uninstalled."
+
+.PHONY: all help build clean test install uninstall uninstall-all
