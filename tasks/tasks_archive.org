@@ -680,3 +680,20 @@
    - [X] Сделать возможность удаления программы.
    - [X] Сделать возможность очистки проекта от лишних файлов.
 
+** DONE Сделать README
+   CLOSED: [2017-04-04 Вт 23:45]
+   :PROPERTIES:
+   :issue_id: 53
+   :issue_type: task
+   :ARCHIVE_TIME: 2017-04-04 Вт 23:45
+   :ARCHIVE_FILE: ~/prog/projects/python/checkmail/checkmail-lin/tasks/tasks.org
+   :ARCHIVE_OLPATH: Окружение
+   :ARCHIVE_CATEGORY: tasks
+   :ARCHIVE_TODO: DONE
+   :END:
+
+   [2017-03-26 Вс]
+
+   - [X] Перевести на английский.
+   - [X] Сделать оглавление и секции.
+
