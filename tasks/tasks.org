@@ -3,7 +3,7 @@
 #+TODO: BUG(b!) | FIXED(f) REJECT(r)
 #+PRIORITIES: A F C
 #+TAGS: current(c) testing(t)
-#+CONSTANTS: last_issue_id=54
+#+CONSTANTS: last_issue_id=55
 
 * Задачи
   :PROPERTIES:
@@ -449,3 +449,9 @@
   :COLUMNS:  %3issue_id(ID) %4issue_type(TYPE) %TODO %40ITEM %SCHEDULED %DEADLINE %1PRIORITY
   :ARCHIVE:  tasks_archive.org::* Архив окружения
   :END:
+
+** TASK Провести программу через линтер
+   :PROPERTIES:
+   :issue_id: 55
+   :issue_type: task
+   :END:
