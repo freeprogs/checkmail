@@ -3,7 +3,7 @@
 #+TODO: BUG(b!) | FIXED(f) REJECT(r)
 #+PRIORITIES: A F C
 #+TAGS: current(c) testing(t)
-#+CONSTANTS: last_issue_id=56
+#+CONSTANTS: last_issue_id=57
 
 * Задачи
   :PROPERTIES:
@@ -468,5 +468,11 @@
 ** TASK Провести программу через линтер
    :PROPERTIES:
    :issue_id: 55
+   :issue_type: task
+   :END:
+
+** TASK Сделать man страницу
+   :PROPERTIES:
+   :issue_id: 57
    :issue_type: task
    :END:
