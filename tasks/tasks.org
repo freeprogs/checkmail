@@ -3,7 +3,7 @@
 #+TODO: BUG(b!) | FIXED(f) REJECT(r)
 #+PRIORITIES: A F C
 #+TAGS: current(c) testing(t)
-#+CONSTANTS: last_issue_id=58
+#+CONSTANTS: last_issue_id=59
 
 * Задачи
   :PROPERTIES:
@@ -473,6 +473,12 @@
    Нужно сделать так, чтобы файл создавался и первая учётная запись
    записывалась туда, как обычно происходит при существующем пустом
    файле.
+
+** BUG На экране в списке аккаунтов выводится пустая строка в конце
+   :PROPERTIES:
+   :issue_id: 59
+   :issue_type: bug
+   :END:
 
 
 * Окружение
