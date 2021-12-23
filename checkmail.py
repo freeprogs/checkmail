@@ -1692,7 +1692,8 @@ class AesCryptor:
         """Encrypt plain string with password."""
         bs = s.encode('utf-8')
         bp = p.encode('utf-8')
-        c = Crypto.Cipher.AES.new(self._align(bp, 16))
+        c = Crypto.Cipher.AES.new(
+            self._align(bp, 16), Crypto.Cipher.AES.MODE_ECB)
         be = c.encrypt(self._align(bs, 16))
         e = be.decode('latin1')
         return e
@@ -1701,7 +1702,8 @@ class AesCryptor:
         """Decrypt crypted string with password."""
         bs = s.encode('latin1')
         bp = p.encode('utf-8')
-        c = Crypto.Cipher.AES.new(self._align(bp, 16))
+        c = Crypto.Cipher.AES.new(
+            self._align(bp, 16), Crypto.Cipher.AES.MODE_ECB)
         bd = c.decrypt(bs)
         d = bd.rstrip(b'\x00').decode('utf-8')
         return d
